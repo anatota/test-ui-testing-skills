@@ -1,0 +1,28 @@
+{
+  "name": "test-ui-testing-skills",
+  "version": "1.0.0",
+  "description": "Java UI test boilerplate using Playwright, JUnit 5, Maven, and the Page Object Model.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mvn test",
+    "test:java": "mvn test",
+    "ui:install": "playwright install chromium",
+    "ui:cli": ".codex/skills/playwright/scripts/playwright_cli.sh",
+    "ui:verify": "node -e \"import(\\\"playwright\\\").then(() => console.log(\\\"playwright import ok\\\"))\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anatota/test-ui-testing-skills.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anatota/test-ui-testing-skills/issues"
+  },
+  "homepage": "https://github.com/anatota/test-ui-testing-skills#readme",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  },
+  "private": true
+}
