@@ -6,3 +6,4 @@ output/playwright/
 .vscode/
 playwright/
 test-results/
+.playwright-cli/

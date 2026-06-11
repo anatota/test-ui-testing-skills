@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <playwright.version>1.59.0</playwright.version>
         <junit.version>5.12.2</junit.version>
+        <axe.version>4.10.1</axe.version>
     </properties>
 
     <dependencies>
@@ -26,6 +27,18 @@
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.deque.html.axe-core</groupId>
+            <artifactId>playwright</artifactId>
+            <version>${axe.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.microsoft.playwright</groupId>
+                    <artifactId>playwright</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

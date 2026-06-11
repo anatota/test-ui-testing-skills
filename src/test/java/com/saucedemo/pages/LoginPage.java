@@ -31,6 +31,17 @@ public class LoginPage {
         return new InventoryPage(page);
     }
 
+    public LoginPage attemptLoginAs(String username, String password) {
+        usernameInput.fill(username);
+        passwordInput.fill(password);
+        loginButton.click();
+        return this;
+    }
+
+    public Locator loginButton() {
+        return loginButton;
+    }
+
     public Locator errorMessage() {
         return errorMessage;
     }
