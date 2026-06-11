@@ -2,14 +2,14 @@ package com.saucedemo.tests;
 
 import com.saucedemo.pages.InventoryPage;
 import com.saucedemo.pages.LoginPage;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-class AuthenticationTest extends BaseTest {
+public class AuthenticationTest extends BaseTest {
 
     @Test
-    void userCanSignInWithValidCredentialsAndOpenDashboard() {
+    public void userCanSignInWithValidCredentialsAndOpenDashboard() {
         InventoryPage inventoryPage = new LoginPage(page)
                 .open()
                 .loginAs("standard_user", "secret_sauce");
@@ -20,7 +20,7 @@ class AuthenticationTest extends BaseTest {
     }
 
     @Test
-    void invalidCredentialsDisplayAnError() {
+    public void invalidCredentialsDisplayAnError() {
         LoginPage loginPage = new LoginPage(page)
                 .open()
                 .attemptLoginAs("invalid_user", "wrong_password");

@@ -6,13 +6,11 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.saucedemo.config.TestConfig;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.TestInstance;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class BaseTest {
     protected Page page;
 
@@ -20,8 +18,8 @@ public abstract class BaseTest {
     private Browser browser;
     private BrowserContext context;
 
-    @BeforeAll
-    void launchBrowser() {
+    @BeforeClass
+    public void launchBrowser() {
         playwright = Playwright.create();
         playwright.selectors().setTestIdAttribute("data-test");
 
@@ -38,22 +36,22 @@ public abstract class BaseTest {
                 .setSlowMo(TestConfig.slowMo()));
     }
 
-    @BeforeEach
-    void createContextAndPage() {
+    @BeforeMethod
+    public void createContextAndPage() {
         context = browser.newContext(new Browser.NewContextOptions()
                 .setViewportSize(1440, 900));
         page = context.newPage();
     }
 
-    @AfterEach
-    void closeContext() {
+    @AfterMethod(alwaysRun = true)
+    public void closeContext() {
         if (context != null) {
             context.close();
         }
     }
 
-    @AfterAll
-    void closeBrowser() {
+    @AfterClass(alwaysRun = true)
+    public void closeBrowser() {
         if (playwright != null) {
             playwright.close();
         }

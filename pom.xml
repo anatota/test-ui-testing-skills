@@ -12,7 +12,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <playwright.version>1.59.0</playwright.version>
-        <junit.version>5.12.2</junit.version>
+        <testng.version>7.11.0</testng.version>
         <axe.version>4.10.1</axe.version>
     </properties>
 
@@ -23,9 +23,9 @@
             <version>${playwright.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

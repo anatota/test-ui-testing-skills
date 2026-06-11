@@ -1,7 +1,7 @@
 {
   "name": "test-ui-testing-skills",
   "version": "1.0.0",
-  "description": "Java UI test boilerplate using Playwright, JUnit 5, Maven, and the Page Object Model.",
+  "description": "Java UI test boilerplate using Playwright, TestNG, Maven, and the Page Object Model.",
   "main": "index.js",
   "scripts": {
     "test": "mvn test",

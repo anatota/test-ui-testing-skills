@@ -5,19 +5,19 @@ import com.deque.html.axecore.results.AxeResults;
 import com.deque.html.axecore.results.Rule;
 import com.microsoft.playwright.ConsoleMessage;
 import com.saucedemo.pages.LoginPage;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testng.Assert.assertTrue;
 
-class QualityTest extends BaseTest {
+public class QualityTest extends BaseTest {
     private static final Set<String> SERIOUS_IMPACTS = Set.of("serious", "critical");
 
     @Test
-    void authenticatedFlowHasNoUnexpectedConsoleErrors() {
+    public void authenticatedFlowHasNoUnexpectedConsoleErrors() {
         List<String> consoleErrors = new ArrayList<>();
         page.onConsoleMessage(message -> {
             if ("error".equals(message.type()) && !isKnownTelemetryError(message)) {
@@ -32,11 +32,11 @@ class QualityTest extends BaseTest {
                 .navigateToAllItems();
 
         assertTrue(consoleErrors.isEmpty(),
-                () -> "Unexpected browser console errors: " + consoleErrors);
+                "Unexpected browser console errors: " + consoleErrors);
     }
 
     @Test
-    void dashboardHasNoSeriousAccessibilityViolations() {
+    public void dashboardHasNoSeriousAccessibilityViolations() {
         new LoginPage(page)
                 .open()
                 .loginAs("standard_user", "secret_sauce");
@@ -47,7 +47,7 @@ class QualityTest extends BaseTest {
                 .toList();
 
         assertTrue(seriousViolations.isEmpty(),
-                () -> "Serious accessibility violations: " + seriousViolations);
+                "Serious accessibility violations: " + seriousViolations);
     }
 
     private boolean isKnownTelemetryError(ConsoleMessage message) {

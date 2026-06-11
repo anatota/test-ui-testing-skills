@@ -1,6 +1,6 @@
 # SauceDemo Playwright Java Boilerplate
 
-Java UI test boilerplate using Playwright, JUnit 5, Maven, and the Page Object
+Java UI test boilerplate using Playwright, TestNG, Maven, and the Page Object
 Model.
 
 ## Prerequisites
@@ -63,7 +63,7 @@ npm run ui:cli -- screenshot
 npm run ui:cli -- close
 ```
 
-Run the Java/JUnit suite with `mvn test` or `npm test`. The Java suite remains
+Run the Java/TestNG suite with `mvn test` or `npm test`. The Java suite remains
 the project test framework; the Node dependency supports the local Codex skills.
 
 The interactive skill additionally requires a new Codex session with `js_repl`

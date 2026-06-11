@@ -2,14 +2,14 @@ package com.saucedemo.tests;
 
 import com.saucedemo.pages.InventoryPage;
 import com.saucedemo.pages.LoginPage;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-class NavigationTest extends BaseTest {
+public class NavigationTest extends BaseTest {
 
     @Test
-    void navigationAndLogoutWork() {
+    public void navigationAndLogoutWork() {
         InventoryPage inventoryPage = new LoginPage(page)
                 .open()
                 .loginAs("standard_user", "secret_sauce");
