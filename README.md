@@ -26,6 +26,8 @@ Run all tests:
 mvn test
 ```
 
+Maven Surefire runs the suite defined in `testng.xml`.
+
 Run in headed mode:
 
 ```bash
